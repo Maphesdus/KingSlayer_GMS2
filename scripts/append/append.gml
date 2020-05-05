@@ -20,9 +20,9 @@ switch(typeof(ds))
 		{
 			ds_queue_enqueue(ds, val);
 		}
-		else show_error("append expects {array, ds_list, ds_stack, or ds_queue} argument0", false);
+		else show_error("append expects {array, ds_list, ds_stack, or ds_queue} argument0 (no ds exists of type with id)", false);
 		break;
 	default:
-		show_error("append expects {array, ds_list, ds_stack, or ds_queue} argument0", false);
+		show_error("append expects {array, ds_list, ds_stack, or ds_queue} argument0, got {"+typeof(ds)+"}.", false);
 		break;
 }
