@@ -4,11 +4,20 @@
     "mvc": "1.0",
     "name": "par_collision",
     "eventList": [
-        
+        {
+            "id": "aabfeedf-6163-427c-8b44-5a8a18925f23",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "3b4865fe-181c-4bbd-9b14-ae8df62ed6d2"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "336cc864-615b-4cbd-a07e-1b51d53ff00f",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,

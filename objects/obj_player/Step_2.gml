@@ -10,5 +10,3 @@ to = view_center();
 view_set_center(vcenter);
 
 view_set_center(point_lerp(view_center(), to, 0.1));
-
-depth = -y;
