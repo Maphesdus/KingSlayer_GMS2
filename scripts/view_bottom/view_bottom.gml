@@ -1,0 +1,1 @@
+return view_top() + view_height();
