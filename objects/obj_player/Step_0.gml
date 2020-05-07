@@ -15,19 +15,26 @@ while(delta_accumulation >= 1)
 }
 
 // Animation
-if (!VecZERO(input))
+if (!attacking)
 {
-	if (animation != "walk")
+	if (!VecZERO(input))
 	{
-		image_index = 0;
-		animation = "walk";
+		if (animation != "walk")
+		{
+			image_index = 0;
+			animation = "walk";
+		}
+	}
+	else
+	{
+		if (animation != "idle")
+		{
+			image_index = 0;
+			animation = "idle";
+		}
 	}
 }
 else
 {
-	if (animation != "idle")
-	{
-		image_index = 0;
-		animation = "idle";
-	}
+	
 }

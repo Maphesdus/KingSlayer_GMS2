@@ -34,6 +34,7 @@
 *   Created by Tsa05 on the GMC forums, possibly with help from GMCers
 *   Terms: Use at will. Do not sell as a textbox script.
 *   Feel free to sell your own assets that happen to use this for the text part.
+*   https://forum.yoyogames.com/index.php?threads/draw_wrapped_colored_text-optimization-the-mother-of-all-textboxes.35901/
 *
 */
 //var typewriterAlarm = 1;  // The alarm number used in your object to advance typewriter text

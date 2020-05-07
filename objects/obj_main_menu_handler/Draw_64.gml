@@ -25,9 +25,17 @@ var isclicked = false;
 var button_pos = Point(xx, yy);
 var button_rect = Rect(xx - sprw, yy - sprh, xx + sprw, yy + sprh);
 
+var over = MMButton.none;
+
 // Hover + Click
 if (active && point_in_rect(mousepoint, button_rect))
 {
+	if (hover != MMButton.start)
+	{
+		// SFX
+		audio_play_sound(snd_ui_hover, 0.1, false);
+	}
+	over = MMButton.start;
 	isover = true;
 	if (mouse_check_button_pressed(mb_left))
 	{
@@ -36,6 +44,8 @@ if (active && point_in_rect(mousepoint, button_rect))
 	if (mouse_check_button_released(mb_left) && clicked == MMButton.start)
 	{
 		active = false;
+		audio_play_sound(snd_ui_submit, 0.2, false);
+		music_fade(snd_soliloquy, 1);
 		effect_fade_script(0, 1, 0.5, FadeMode.cosine, mainmenu_signal_start);
 	}
 }
@@ -57,3 +67,7 @@ if (!mouse_check_button(mb_left))
 {
 	clicked = MMButton.none;
 }
+
+isover = false;
+
+hover = over;

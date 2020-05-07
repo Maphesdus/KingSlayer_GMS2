@@ -11,6 +11,7 @@ fracvelocity = Vec2(0, 0);
 facingDir = 0;
 sprite_base = "spr_player";
 animation = "idle";
+attacking = false;
 
 delta_accumulation = 0;
 delta_timing = true;
