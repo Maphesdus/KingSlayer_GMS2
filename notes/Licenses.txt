@@ -1,3 +1,9 @@
 =FONTS=
+Bitpotion
 https://joebrogers.itch.io/bitpotion
 	License: https://creativecommons.org/licenses/by/4.0/
+
+=GRAPHICS=
+Vintage grunge paper texture
+https://www.freepik.com/free-vector/vintage-grunge-paper-texture_859356.htm
+	License: https://support.freepik.com/hc/en-us/articles/208976585-Attribution-How-when-and-where-?_ga=2.267737357.221001852.1589055376-274139380.1589055376

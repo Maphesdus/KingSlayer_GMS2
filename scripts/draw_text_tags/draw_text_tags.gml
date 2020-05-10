@@ -36,11 +36,14 @@
 *   Feel free to sell your own assets that happen to use this for the text part.
 *   https://forum.yoyogames.com/index.php?threads/draw_wrapped_colored_text-optimization-the-mother-of-all-textboxes.35901/
 *
+*	EDITED TO USE A STACK, AND ALLOW POPPING TO PREVIOUS COLOR AND FONT
 */
 //var typewriterAlarm = 1;  // The alarm number used in your object to advance typewriter text
 
 var prevcolor = draw_get_color();
 var prevfont = draw_get_font();
+
+var stack = ds_stack_create();
 
 var debug = 0;
 draw_set_halign(fa_left);
@@ -129,9 +132,9 @@ else
     }
 	else
 	{
-        for(var z = 1; z <= maxLength; z++)
+        for(var z = maxLength; z >= 1; z--)
 		{
-            textArray[z]=string_char_at(text,z); //Slower
+            textArray[z] = string_char_at(text,z); //Slower
             //textArray[z]=chr(string_byte_at(text,z)); //Faster, less character support
         }
     }
@@ -242,31 +245,46 @@ while (i <= length)
                 if (i > maxLength) break;
               
                 //c = string_char_at(text,i);
-                if (i<array_length_1d(textArray)){
+                if (i < array_length_1d(textArray))
+				{
                     c = textArray[i];
                 }
 				else
 				{
-					c="";
+					c = "";
 				}
-                if (debug) show_debug_message("next character of code:"+c);
+                if (debug) show_debug_message("next character of code:" + c);
             }
           
             if (c == "]")
 			{
                 brackets = false;
-                c="";
+                c = "";
                 // Analyze code
-                if (string_pos("f=",code) == 1 || string_pos("font=",code) == 1)
+                if (string_pos("f=", code) == 1 || string_pos("font=", code) == 1)
 				{
                     var fontName = string_delete(code, 1, 2);
-                    if (asset_get_index(fontName) != -1)
+					var fInd = asset_get_index(fontName);
+                    if (fInd != -1)
 					{
                         if (asset_get_type(fontName) == asset_font)
 						{
-                            font = asset_get_index(fontName);
+							ds_stack_push(stack, [cc, font]);
+                            font = fInd;
                         }
                     }
+                }
+                else if (string_pos("/", code) == 1) // "pop" tag [/]
+				{
+                    if (!ds_stack_empty(stack))
+					{
+						var val = ds_stack_pop(stack);
+						if (is_array(val))
+						{
+							cc = val[0];
+							font = val[1];
+						}
+					}
                 }
 				else if (string_pos("r:", code) == 1)
 				{
@@ -289,7 +307,8 @@ while (i <= length)
 						{
 							dec = dec << 4 | (string_pos(string_char_at(code, p), h) - 1);
 						}
-                        var cc = (dec & 16711680) >> 16 | (dec & 65280) | (dec & 255) << 16;
+						ds_stack_push(stack, [cc, font]);
+                        var cc = (dec & 0xFF0000) >> 16 | (dec & 0x00FF00) | (dec & 0x0000FF) << 16;
                         ///////////////////////////
                       
                     }
@@ -298,12 +317,15 @@ while (i <= length)
                 // Showing these characters.
                 length += string_length(code) + 2; //Plus 2 for brackets
                 code = "";
-            }else{
+            }
+			else
+			{
                 // if no end bracket was found, don't draw this
-                c="";
+                c = "";
             }
         }
-    }else
+    }
+	//else
     // IF PAUSE CHARACTER
     /*if (c == "|"){
         //if (i==1 || string_char_at(text,i-1) != "\\"){
@@ -421,6 +443,7 @@ while (i <= length)
 
 		draw_set_color(prevcolor);
 		draw_set_font(prevfont);
+		ds_stack_destroy(stack);
         return retval;
     }
 	else
@@ -461,6 +484,7 @@ while (i <= length)
 
 			draw_set_color(prevcolor);
 			draw_set_font(prevfont);
+			ds_stack_destroy(stack);
             return retval;
         }
     }   
@@ -471,4 +495,5 @@ if (mode) retval = lines;
 
 draw_set_color(prevcolor);
 draw_set_font(prevfont);
+ds_stack_destroy(stack);
 return retval;
