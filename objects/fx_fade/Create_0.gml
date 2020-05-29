@@ -1,4 +1,6 @@
 /// @description 
+
+// This object doesn't need to be understood to use it
 duration = 0;				// in seconds
 startalpha = 1;
 destalpha = 0;

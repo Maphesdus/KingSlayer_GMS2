@@ -1,0 +1,36 @@
+English			singular	plural
+
+mountain		bien		bienan
+peak			chote		chaetean
+valley			stoc		stocan
+boulder			olbha		olbhean
+stone			chusál		chiosálan
+river			obhan		obhanan
+forest			coilhe		coilhean
+grove			osar		osaran
+tree			cir			cirean
+ocean			osuin		osuinan
+kingdom			ríshachd	ríshachden
+village			bhaile		bhailean
+mine			mhiene		mhienean
+quarry			iceum		iceuman
+tower			dhagir		dhuigiran
+castle			cherseu		chierseun
+fort			dom			doman
+camp			tentha		tienthean
+king			rèigh		rèighan
+(black)smith	fodgh		fodghen
+dawn, morning	midn		midnen					<-- when used as an adjective, means "early"
+twin, pair		ciedr		ciedren
+
+
+west			ilam
+east			èilm
+north			nòs
+south			deis
+
+
+
+green			ain
+blue			lapn
+

@@ -16,7 +16,8 @@
         "270ca24a-ebf0-4b1a-827c-55f6022c0079",
         "2b36bc24-0474-4b70-b853-783202623881",
         "1a2a36db-0b8b-4d4c-9a07-b98afd382147",
-        "c8b076e6-e68e-4a41-baa4-1a7d10f26b7e"
+        "c8b076e6-e68e-4a41-baa4-1a7d10f26b7e",
+        "47f7466a-5c18-4b95-9b25-21a9d0b5654c"
     ],
     "filterType": "GMScript",
     "folderName": "Views",

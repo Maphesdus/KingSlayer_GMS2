@@ -4,7 +4,7 @@
     },
     "option_gameguid": "5642daf8-0e5d-4154-b662-16d35ef453a0",
     "option_game_speed": 60,
-    "option_lastchanged": "01 January 1601 0:00:00",
+    "option_lastchanged": "13 May 2020 14:05:13",
     "option_sci_usesci": true
 }←be5f1418-b31b-48af-a023-f04cdf6e5121|{
     "textureGroups": {

@@ -1,8 +1,10 @@
 /// @description 
-text = string_repeat("This is a [FF0000]test[/]. ", 19);
-name = "Albert";
+
+// You'll need to implement most of this yourself, it's just a framework
+text = "";
+name = "";
 index = 0; // Typewriter-animation
 index_acc = 0; // while >= 1, -1 and advance index
 spd = 36; // Chars per second
 
-indialogue = true;
+indialogue = false;
