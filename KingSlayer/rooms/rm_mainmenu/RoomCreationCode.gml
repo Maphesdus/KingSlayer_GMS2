@@ -1,1 +1,0 @@
-effect_fade(1, 0, 2, FadeMode.cosine);

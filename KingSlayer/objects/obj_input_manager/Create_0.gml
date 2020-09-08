@@ -1,3 +1,0 @@
-/// @description 
-
-init_input();
